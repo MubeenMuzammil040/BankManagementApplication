@@ -9,7 +9,7 @@ import java.awt.event.*;
 import java.sql.ResultSet;
 
 
-class Main extends JFrame implements ActionListener {
+class Main extends JFrame implements ActionListener, Runnable {
     JLabel label, label1, label2;
 
     JPanel p1 = new JPanel();
@@ -21,10 +21,8 @@ class Main extends JFrame implements ActionListener {
     int previousTransaction;
     String CustomerName;
     private int amount;
-
-    public Main() {
-        super();
-
+    @Override
+    public void run() {
 
         JLabel background;
         setTitle("ATM");
@@ -88,6 +86,12 @@ class Main extends JFrame implements ActionListener {
         if (e.getSource() == clear) {
             t1.setText("");
             t2.setText("");
+            try{
+                Thread.sleep(1000);       //sleep method
+            }catch(Exception a){
+                System.out.println(a);
+            }
+
         } else if (e.getSource() == login) {
                     Conn c=new Conn();
                     String CardNo=t1.getText();
@@ -109,26 +113,23 @@ class Main extends JFrame implements ActionListener {
                     }
 
                 } else if (e.getSource() == sign_up) {
+              try{
+                  Thread.sleep(2000);
+              }catch(Exception e1){
+                System.out.println(e1);
+            }
                   setVisible(false);
                   new s1().setVisible(true);
+
                 }
         }
     }
 
-
-
-
-
-
-
-
-
-
-
 class login {
     public static void main(String[] args) {
-
-        Main obj = new Main();
+        Thread t1=new Thread(new Main());
+t1.start();
+        //Main obj = new Main();
 
 
     }
