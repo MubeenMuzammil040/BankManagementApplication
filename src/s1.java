@@ -236,13 +236,16 @@ public class s1 extends JFrame implements ActionListener//,Runnable
                     JOptionPane.showMessageDialog(this, "Card Number:" + CardNo + "\n PIN No" + PinNo);
                     String query2= "insert into login values('"+ CardNo+"','" +PinNo+"')";
                     c.s.executeUpdate(query2);
+
                 }
             } catch (Exception t) {
-                System.out.println();
+                System.out.println(t);
             }
             }else if (e.getSource() == Cancel) {
                setVisible(false);
-           new Main().setVisible(true);
+              // new login().setVisible(true);
+          new TransactionDemo("").setVisible(true);
+
              }
         }
 

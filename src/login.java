@@ -102,7 +102,7 @@ class Main extends JFrame implements ActionListener, Runnable {
                         ResultSet rs= c.s.executeQuery(query);
                        if(rs.next()){
                            setVisible(false);
-                           new Transaction(PinNo).setVisible(true);
+                           new TransactionDemo(PinNo).setVisible(true);
 
                        }else{
                            JOptionPane.showMessageDialog(this,"Incorrect CardNo or PinNo");
@@ -129,9 +129,11 @@ class login {
     public static void main(String[] args) {
         Thread t1=new Thread(new Main());
 t1.start();
-        //Main obj = new Main();
+        Main obj = new Main();
 
 
     }
+
+
 }
 
