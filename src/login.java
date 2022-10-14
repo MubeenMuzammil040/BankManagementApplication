@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 
 class Main extends JFrame implements ActionListener, Runnable {
-    JLabel label, label1, label2;
+    JLabel label,  l,label1, label2;
 
     JPanel p1 = new JPanel();
     JTextField t1;
@@ -25,7 +25,7 @@ class Main extends JFrame implements ActionListener, Runnable {
     public void run() {
 
         JLabel background;
-        setTitle("ATM");
+        setTitle("Online Banking System");
         setBounds(400, 100, 800, 500);
         setLayout(null);
         Container c = getContentPane();   //RETURN THE CONTENT PANE
@@ -44,37 +44,56 @@ class Main extends JFrame implements ActionListener, Runnable {
         p.setBounds(20, 0, 400, 500);
         p.setBackground(Color.cyan);
         c.setBackground(Color.cyan);
+
+        l=new JLabel("Welcome to Bank");
+        l.setBounds(50,20,300,50);
+        Font fg = new Font("Arial", Font.PLAIN, 30);
+        l.setFont(fg);
+        c.add(l);
+
         label1 = new JLabel("Card No"); //label create
-        label1.setBounds(20, 50, 200, 50);
+        label1.setBounds(20, 80, 200, 50);
         Font fn = new Font("Arial", Font.PLAIN, 20);
         label1.setFont(fn);
         c.add(label1);
 
         t1 = new JTextField();  // label text box
-        t1.setBounds(170, 65, 150, 20);
+        t1.setBounds(170, 90, 150, 20);
         c.add(t1);
 
         label2 = new JLabel("PIN Number"); //label create
-        label2.setBounds(20, 150, 200, 20);
+        label2.setBounds(20, 170, 200, 20);
         Font f = new Font("Arial", Font.PLAIN, 20);
         label2.setFont(f);
         c.add(label2);
 
         t2 = new JPasswordField();  // label text box
-        t2.setBounds(170, 150, 150, 20);
+        t2.setBounds(170, 170, 150, 20);
         c.add(t2);
         login = new JButton("SIGN IN");
-        login.setBounds(60, 250, 80, 20);
+        login.setBounds(50, 250, 130, 30);
+        Font o = new Font("Arial", Font.PLAIN, 20);
+        login.setBackground(Color.black);
+        login.setForeground(Color.white);
+        login.setFont(o);
         login.addActionListener(this);
         c.add(login);
 
         clear = new JButton("CLEAR");
-        clear.setBounds(170, 250, 80, 20);
+        clear.setBounds(230, 250, 130, 30);
+        clear.setBackground(Color.black);
+        clear.setForeground(Color.white);
+        Font n = new Font("Arial", Font.PLAIN, 20);
+        clear.setFont(n);
         clear.addActionListener(this);
         c.add(clear);
 
         sign_up = new JButton("SIGN UP");
-        sign_up.setBounds(130, 320, 80, 20);
+        sign_up.setBounds(150, 320, 130, 30);
+        sign_up.setBackground(Color.black);
+        sign_up.setForeground(Color.white);
+        Font m = new Font("Arial", Font.PLAIN, 20);
+        sign_up.setFont(m);
         sign_up.addActionListener(this);
         c.add(sign_up);
 

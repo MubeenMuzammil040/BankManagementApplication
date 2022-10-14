@@ -207,9 +207,9 @@ public class s1 extends JFrame implements ActionListener//,Runnable
             String dateofbirth = t3.getText();
             String Gender=null;
             if (male.isSelected()) {
-                gender = "Male";
+                Gender = "Male";
             } else if (female.isSelected()) {
-                gender = "Female";
+                Gender = "Female";
             }
             String email = t4.getText();
             String address = ta1.getText();

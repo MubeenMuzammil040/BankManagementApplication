@@ -32,9 +32,8 @@ String PinNo;
         JLabel label = new JLabel(image);
         p1.add(label);
 
-         deposit = new JButton("Deposit");
+         deposit = new JButton("DEPOSIT");
          withdraw = new JButton("WITHDRAW");
-        fastCash = new JButton("FAST CASH");
         changePin = new JButton("CHANGE PIN");
          balance = new JButton("BALANCE");
          exit = new JButton("EXIT");
@@ -51,19 +50,13 @@ String PinNo;
         withdraw.addActionListener(this);
         label.add(withdraw);
 
-        fastCash.setBounds(40, 200, 200, 50);
-        Font b = new Font("Arial", Font.PLAIN, 20);
-        fastCash.setFont(b);
-        fastCash.addActionListener(this);
-        label.add(fastCash);
-
         changePin.setBounds(300, 200, 200, 50);
         Font c = new Font("Arial", Font.PLAIN, 20);
         changePin.setFont(c);
-        balance.addActionListener(this);
+        changePin.addActionListener(this);
         label.add(changePin);
 
-        balance.setBounds(40, 300, 200, 50);
+        balance.setBounds(40, 200, 200, 50);
         Font d = new Font("Arial", Font.PLAIN, 20);
         balance.setFont(f);
         balance.addActionListener(this);
@@ -83,13 +76,21 @@ String PinNo;
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == exit) {
             System.exit(0);
-            
-        }else if(e.getSource()==deposit){
-            setVisible(false);
-            String PinNo = null;
-            new Deposit("").setVisible(true);
-        }
 
+        } else if (e.getSource() == deposit) {
+            setVisible(false);
+            new Deposit(PinNo).setVisible(true);
+        } else if (e.getSource() == withdraw) {
+            setVisible(false);
+            new Withdraw(PinNo).setVisible(true);
+        } else if (e.getSource() == changePin) {
+            setVisible(false);
+            new PinChange(PinNo).setVisible(true);
+        } else if (e.getSource() == balance) {
+            setVisible(false);
+            new Balance(PinNo).setVisible(true);
+
+        }
     }
 
     void setVisible(boolean b) {
@@ -97,10 +98,11 @@ String PinNo;
 
 }
 class Transaction {
-    public Transaction() {
+    public Transaction(String pinNo) {
     }
     public static void main(String[] args) {
-       TransactionDemo obj = new TransactionDemo("");
+
+        TransactionDemo obj = new TransactionDemo("");
     }
 
     public void setVisible(boolean b) {
